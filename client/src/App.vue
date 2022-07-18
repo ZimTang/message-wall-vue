@@ -3,9 +3,9 @@ import PageNav from './components/page-nav.vue';
 </script>
 
 <template>
-  <div>
+  <div class="container mx-auto">
     <page-nav />
-    <router-view></router-view>
+    <router-view ></router-view>
   </div>
 </template>
 

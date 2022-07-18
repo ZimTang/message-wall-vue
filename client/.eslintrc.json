@@ -11,6 +11,8 @@
   "plugins": ["vue"],
   "rules": {
     "import/no-extraneous-dependencies": "off",
-    "no-param-reassign": "off"
+    "no-param-reassign": "off",
+    "import/prefer-default-export": "off",
+    "consistent-return": "off"
   }
 }

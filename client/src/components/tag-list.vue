@@ -1,14 +1,15 @@
 <template>
-  <div class="cate-list">
-    <div
-      class="cate-item"
-      :class="{ active: item.isActive }"
-      v-for="(item, index) in props.list"
-      :key="item"
-    >
-      <a href="#" @click="changeCate(index, item.id, $event)">{{
-        item.text
-      }}</a>
+  <div class="flex justify-center  text-sm mb-5">
+    <div class="flex justify-around w-3/4">
+      <div
+        :class="{ active: item.isActive }"
+        v-for="(item, index) in props.list"
+        :key="item"
+      >
+        <a href="#" @click="changeTag(index, item, $event)">{{
+          item.name
+        }}</a>
+      </div>
     </div>
   </div>
 </template>
@@ -20,10 +21,10 @@ const props = defineProps({
     required: true,
   },
 });
-const emits = defineEmits(['changeCate']);
-const changeCate = (index, id, e) => {
+const emits = defineEmits(['changeTag']);
+const changeTag = (index, item, e) => {
   e.preventDefault();
-  emits('changeCate', index, id);
+  emits('changeTag', index, item);
 };
 </script>
 
