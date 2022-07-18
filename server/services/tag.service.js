@@ -1,13 +1,15 @@
-const tagModel = require("../models/tag.model");
+const TagModel = require("../models/tag.model");
+
 class TagService {
   async create(tagName) {
-    const newTag = new tagModel({ name: tagName });
+    const newTag = new TagModel({ name: tagName });
     await newTag.save();
-    return tagName
+    return tagName;
   }
 
   async findAll() {
-    return await tagModel.find({}).select('name');
+    const data = await TagModel.find({}).select("name");
+    return data
   }
 }
 

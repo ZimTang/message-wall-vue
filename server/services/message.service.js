@@ -2,15 +2,23 @@ const MessageModel = require("../models/message.model");
 
 class MessageService {
   async create(message) {
-    const newMessage = new MessageModel({ ...message });
+    const newMessage = new MessageModel({ ...message, stars: 0, comments: [] });
     await newMessage.save();
     return newMessage;
   }
 
   async findAll(pageNum, pageSize) {
-    return await MessageModel.find()
+    const data = await MessageModel.find()
       .limit(pageSize)
       .skip((pageNum - 1) * pageSize);
+    return data;
+  }
+
+  async findByTag(pageNum, pageSize, tag) {
+    const data = await MessageModel.find({ tag })
+      .limit(pageSize)
+      .skip((pageNum - 1) * pageSize);
+    return data;
   }
 }
 
